@@ -1,360 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OVA SENA - Bienvenida</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    /* ===== FONDO ===== */
-    body {
-      background: url("fondo-sena.jpg") no-repeat center center/cover;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow-x: hidden;
-      color: white;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 0;
-    }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      opacity: 0;
-      transform: translateY(-40px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    nav.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    nav img {
-      height: 70px;
-      margin-top: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    nav img:hover {
-      transform: scale(1.08);
-    }
-
-    .menu-links {
-      display: flex;
-      align-items: center;
-      gap: 45px;
-    }
-
-    .menu-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-    }
-
-    .menu-links a:hover {
-      background: rgba(255, 255, 255, 1);
-      color: #111;
-      padding: 6px 14px;
-      border-radius: 25px;
-      transform: scale(0.93);
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    }
-
-    .btn-explora {
-      background: #fff;
-      color: #111;
-      font-weight: 600;
-      border: none;
-      padding: 10px 25px;
-      border-radius: 30px;
-      font-size: 1.15rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .btn-explora:hover {
-      background: #dcdcdc;
-      transform: scale(0.95);
-    }
-
-    /* ===== CONTENIDO PRINCIPAL ===== */
-    .contenido {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      width: 100%;
-      padding: 180px 100px 60px;
-      min-height: calc(100vh - 80px);
-      position: relative;
-      z-index: 10;
-      opacity: 0;
-      transform: translateY(60px) scale(0.9);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-
-    .contenido.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .texto {
-      max-width: 550px;
-    }
-
-    .texto h1 {
-      font-size: 3.6rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
-
-    .texto h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .texto p {
-      font-size: 2.5rem;
-      margin-bottom: 25px;
-      line-height: 1.2;
-      font-weight: 700;
-    }
-
-    .btn-aprender {
-      background: linear-gradient(90deg, #39A900, #2e8700);
-      border: none;
-      padding: 15px 32px;
-      font-size: 1.1rem;
-      font-weight: 800;
-      border-radius: 20px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(57, 169, 0, 0.4);
-    }
-
-    .btn-aprender:hover {
-      background: linear-gradient(90deg, #2e8700, #39A900);
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(57, 169, 0, 0.7);
-    }
-
-    .personaje {
-      max-width: 490px;
-      z-index: 10;
-      position: absolute;
-      bottom: 0;
-      right: 100px;
-      opacity: 0;
-      transform: translateY(60px);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-
-    .personaje.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background-color: #39A900;
-      color: white;
-      padding: 30px 0 0 0;
-      position: relative;
-      font-family: 'Segoe UI', sans-serif;
-      width: 100%;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(60px) scale(0.95);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-
-    footer.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      padding: 0 50px;
-    }
-
-    .footer-info {
-      max-width: 50%;
-    }
-
-    .footer-info h3 {
-      margin: 0;
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
-
-    .footer-info p {
-      margin: 8px 0 0;
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .footer-social img {
-      width: 45px;
-      height: 30px;
-      transition: transform 0.3s ease;
-    }
-
-    .footer-social img:hover {
-      transform: scale(1.15);
-    }
-
-    .footer-bottom {
-      width: 100%;
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1rem;
-      padding: 15px 0;
-      background: linear-gradient(to right, #296606, #296606);
-      border-top: 1px solid rgba(255,255,255,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .footer-bottom p {
-      margin: 0;
-      color: #fff;
-      font-weight: 500;
-      width: 100%;
-    }
-
-    @media (max-width: 950px) {
-      .contenido {
-        flex-direction: column;
-        text-align: center;
-        padding: 150px 40px 60px;
-      }
-
-      .personaje {
-        max-width: 300px;
-        margin-top: 25px;
-        position: relative;
-        right: 0;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 30px;
-      }
-
-      .menu-links {
-        gap: 25px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OVA SENA - Bienvenida</title>
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-  <!-- ===== NAVBAR ===== -->
-  <nav id="navbar">
-    <img src="logo-sena-blanco.png" alt="Logo SENA" />
-    <div class="menu-links">
-      <a href="#">Bienvenida</a>
-      <a href="#">Inicio</a>
-    </div>
-    <a href="#" class="btn-explora">Explora</a>
-  </nav>
+<body class="body-index" id="body-index">
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar-index" id="navbar-index">
+<img src="/img/logo-sena-blanco.png" alt="Logo SENA" />
+<div class="menu-links">
+  <a href="#">Bienvenida</a>
+  <a href="#">Inicio</a>
+</div>
+<a href="#" class="btn-explora">Explora</a>
+</nav>
 
-  <!-- ===== CONTENIDO ===== -->
-  <section class="contenido" id="contenido">
-    <div class="texto">
-      <h1>Bienvenido</h1>
-      <h2>al OVA de</h2><br><br><br>
-      <p>Gestión<br>Logística</p>
-      <br><br>
-      <button class="btn-aprender">Iniciar Aprendizaje</button>
-    </div>
+<!-- ===== CONTENIDO ===== -->
+<section class="contenido-index" id="contenido-index">
+<div class="texto-cont-index">
+  <h1>Bienvenido</h1>
+  <h2>al OVA de</h2><br><br><br>
+  <p>Gestión<br>Logística</p>
+  <br><br>
+  <button class="btn-aprender">Iniciar Aprendizaje</button>
+</div>
 
-    <div class="personaje" id="personaje">
-      <img src="personaje-sena.png" alt="Personaje SENA" width="100%" />
-    </div>
-  </section>
+<div class="personaje-index" id="personaje-index">
+  <img src="/img/models/personaje-sena.png" alt="Personaje SENA" width="100%" />
+</div>
+</section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer id="footer">
-    <div class="footer-content">
-      <div class="footer-info">
-        <h3>Carrera 48 # 6-40 Urb. Guayuriba</h3>
-        <p>servicioalciudadano@sena.edu.co</p>
-      </div>
+<!-- ===== FOOTER ===== -->
+<footer class="footer-index" id="footer-index">
+<div class="footer-content">
+  <div class="footer-info">
+    <h3>Carrera 48 # 6-40 Urb. Guayuriba</h3>
+    <p>servicioalciudadano@sena.edu.co</p>
+  </div>
 
-      <div class="footer-social">
-        <a href="#"><img src="facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="youtube.png" alt="YouTube"></a>
-        <a href="#"><img src="instagram.png" alt="Instagram"></a>
-      </div>
-    </div>
+  <div class="footer-social-index">
+    <a href="#"><img src="/assets/icons/facebook.png" alt="Facebook"></a>
+    <a href="#"><img src="/assets/icons/youtube.png" alt="YouTube"></a>
+    <a href="#"><img src="/assets/icons/instagram.png" alt="Instagram"></a>
+  </div>
+</div>
 
-    <div class="footer-bottom">
-      <p>© 2025 Servicio Nacional de Aprendizaje SENA<br>Todos los derechos reservados.</p>
-    </div>
-  </footer>
+<div class="footer-bottom-index">
+  <p>© 2025 Servicio Nacional de Aprendizaje SENA<br>Todos los derechos reservados.</p>
+</div>
+</footer>
 
-  <!-- ===== SCRIPT EFECTO SCROLL ===== -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const secciones = document.querySelectorAll("#navbar, #contenido, #personaje, #footer");
-
-    const observer = new IntersectionObserver((entradas) => {
-      entradas.forEach((entrada) => {
-        if (entrada.isIntersecting) {
-          entrada.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.2 });
-
-    secciones.forEach((sec) => observer.observe(sec));
-  });
-  </script>
+<!-- ===== SCRIPT EFECTO SCROLL ===== -->
+<script src="js/main.js"></script>
 </body>
 </html>
