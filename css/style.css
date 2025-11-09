@@ -12,7 +12,7 @@
 
 /* ===== FONDO ===== */
 .body-index {
-    background: url("/img/banners/fondo-sena.jpg") no-repeat center center/cover;
+    background: url("../img/banners/fondo-sena.jpg") no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
