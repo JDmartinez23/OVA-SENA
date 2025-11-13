@@ -85,6 +85,8 @@ nav img:hover {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  min-height: 550px;
+  overflow: hidden;
 }
 
 .banner h1 {
@@ -102,68 +104,88 @@ nav img:hover {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: nowrap;
   width: 100%;
   max-width: 1300px;
   padding: 0 20px;
+  position: relative;
 }
 
 .banner-imagenes img {
   width: 350px;
-  height: 200px;
+  height: 230px;
   object-fit: cover;
   object-position: center;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  background: white;
+  border-radius: 25px;
   padding: 10px;
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s ease-in-out;
   cursor: pointer;
   position: relative;
+  flex-shrink: 0;
 }
 
-/* Imagen izquierda - expande hacia la derecha */
-.banner-imagenes img:nth-child(1) {
-  transform-origin: left center;
+/* Estado cuando una imagen está expandida - las demás se reducen */
+.banner-imagenes img.reducido {
+  width: 100px;
+  height: 230px;
+ 
+}
+/* Imagen izquierda se recorta solo desde el lado derecho */
+.banner-imagenes img:nth-child(1).reducido {
+  width: 150px;
+  height: 230px;
+  opacity: 0.7;
+  object-position: left center;
+  transform: translateX(-20px);
 }
 
+/* Imagen del centro cuando está reducida */
+.banner-imagenes img:nth-child(2).reducido {
+  width: 150px;
+  height: 230px;
+  opacity: 0.7;
+  object-position: center center;
+}
+
+/* Imagen derecha se recorta solo desde el lado izquierdo */
+.banner-imagenes img:nth-child(3).reducido {
+  width: 150px;
+  height: 230px;
+  opacity: 0.7;
+  object-position: right center;
+  transform: translateX(20px);
+}
+
+
+/* Imagen izquierda expandida */
 .banner-imagenes img:nth-child(1).expandido {
-  width: 500px;
-  height: 300px;
-  transform: translateX(0);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  width: 700px;
+  height: 230px;
+  
   z-index: 20;
+  opacity: 1;
 }
 
-/* Imagen del centro - expande hacia ambos lados */
-.banner-imagenes img:nth-child(2) {
-  transform-origin: center center;
-}
-
+/* Imagen del centro expandida */
 .banner-imagenes img:nth-child(2).expandido {
-  width: 500px;
-  height: 300px;
-  transform: scale(1);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  width: 700px;
+  height: 230px;
+  
   z-index: 20;
+  opacity: 1;
 }
 
-/* Imagen derecha - expande hacia la izquierda */
-.banner-imagenes img:nth-child(3) {
-  transform-origin: right center;
-}
-
+/* Imagen derecha expandida */
 .banner-imagenes img:nth-child(3).expandido {
-  width: 500px;
-  height: 300px;
-  transform: translateX(0);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  width: 700px;
+  height: 230px;
+  
   z-index: 20;
+  opacity: 1;
 }
 
-.banner-imagenes img:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
+
 
 /* ===== SECCIONES CON FONDO VERDE ===== */
 .seccion-verde {
@@ -299,84 +321,84 @@ nav img:hover {
 
 /* ===== FOOTER ===== */
 .footer-index {
-    background-color: #39A900;
-    color: white;
-    padding: 30px 0 0 0;
-    position: relative;
-    font-family: 'Segoe UI', sans-serif;
-    width: 100%;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(60px) scale(0.95);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+  background-color: #39A900;
+  color: white;
+  padding: 30px 0 0 0;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  margin-top: 50px;
 }
 
 .footer-index.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 50px;
 }
 
 .footer-info {
-    max-width: 50%;
+  max-width: 50%;
 }
 
 .footer-info h3 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 800;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
 }
 
 .footer-info p {
-    margin: 8px 0 0;
-    font-size: 1.4rem;
-    font-weight: 600;
+  margin: 8px 0 0;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 
 .footer-social-index {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .footer-social-index img {
-    width: 45px;
-    height: 30px;
-    transition: transform 0.3s ease;
+  width: 45px;
+  height: 30px;
+  transition: transform 0.3s ease;
 }
 
 .footer-social-index img:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .footer-bottom-index {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    font-size: 1rem;
-    padding: 15px 0;
-    background: linear-gradient(to right, #296606, #296606);
-    border-top: 1px solid rgba(255,255,255,0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1rem;
+  padding: 15px 0;
+  background: linear-gradient(to right, #296606, #296606);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-bottom-index p {
-    margin: 0;
-    color: #fff;
-    font-weight: 500;
-    width: 100%;
+  margin: 0;
+  color: #fff;
+  font-weight: 500;
+  width: 100%;
 }
-
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 950px) {
@@ -391,58 +413,48 @@ nav img:hover {
   }
 
   .banner {
-    height: 350px;
-    margin-top: 120px;
-    flex-direction: column;
-    justify-content: center;
+    padding: 30px 20px;
+    align-items: center;
   }
 
   .banner h1 {
-    font-size: 2.5rem;
-    position: static;
-    transform: none;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .banner img {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
   }
 
   .banner-imagenes {
-    position: static;
-    transform: none;
-    gap: 15px;
+    justify-content: center;
   }
 
-  .banner-imagen {
-    width: 200px;
-    height: 240px;
+  .seccion-verde,
+  .seccion-blanca {
+    padding: 30px 20px;
   }
 
-  .banner-horizontal {
-    height: 250px;
-  }
-
-  .banner-horizontal h1 {
+  .seccion-verde h2,
+  .seccion-blanca h2 {
     font-size: 2rem;
-    left: 30px;
-  }
-
-  .banner-imagenes-horizontal {
-    right: 30px;
-    gap: 10px;
-  }
-
-  .imagen-horizontal {
-    width: 150px;
-    height: 100px;
-  }
-
-  .contenido-principal {
-    padding: 40px 30px;
+    padding-left: 0;
   }
 
   .tarjetas-contenedor {
     grid-template-columns: 1fr;
+    padding: 0 20px;
   }
 
-  .video-placeholder {
+  .seccion-media {
+    margin: 0 20px;
+    padding: 30px;
+  }
+
+  .media-placeholder {
     height: 250px;
   }
 

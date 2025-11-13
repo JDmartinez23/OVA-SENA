@@ -75,18 +75,27 @@
   // Obtener todas las imágenes del banner
   const imagenesDelBanner = document.querySelectorAll('.banner-imagenes img');
   
-  imagenesDelBanner.forEach((imagen) => {
+  imagenesDelBanner.forEach((imagen, index) => {
     imagen.addEventListener('click', function(e) {
-      e.stopPropagation(); // Evitar que se propague al document
+      e.stopPropagation();
       
-      // Si la imagen ya está expandida, la contraemos
+      // Si la imagen ya está expandida, restaurar todas al tamaño normal
       if (this.classList.contains('expandido')) {
-        this.classList.remove('expandido');
+        imagenesDelBanner.forEach(img => {
+          img.classList.remove('expandido');
+          img.classList.remove('reducido');
+        });
       } else {
-        // Contraer todas las demás imágenes
-        imagenesDelBanner.forEach(img => img.classList.remove('expandido'));
-        // Expandir la imagen clickeada
-        this.classList.add('expandido');
+        // Expandir la imagen clickeada y reducir las demás
+        imagenesDelBanner.forEach((img, i) => {
+          if (i === index) {
+            img.classList.add('expandido');
+            img.classList.remove('reducido');
+          } else {
+            img.classList.add('reducido');
+            img.classList.remove('expandido');
+          }
+        });
       }
     });
   });
@@ -94,10 +103,12 @@
   // Cerrar imagen expandida al hacer click fuera
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.banner-imagenes')) {
-      imagenesDelBanner.forEach(img => img.classList.remove('expandido'));
+      imagenesDelBanner.forEach(img => {
+        img.classList.remove('expandido');
+        img.classList.remove('reducido');
+      });
     }
   });
-</script>
 </script>
 <!-- ===== SCRIPT EFECTO SCROLL ===== -->
 <script src="js/main.js"></script>
