@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explora</title>
+    <link rel="stylesheet" href="./css/explora.css">
+  
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <img src="img/logo-sena-blanco.png" alt="Logo SENA" />
+    <div class="menu-links">
+      <a href="index.html">Bienvenida</a>
+      <a href="inicio.html">Inicio</a>
+    </div>
+    <a href="explora.html" class="btn-explora">Explora</a>
+  </nav>
+
+  <!-- Banner con imágenes -->
+<div class="banner">
+  <h1>Lorem Ipsum</h1>
+  <div class="banner-imagenes">
+    <img src="images/descargar.webp" alt="seleccion_colombia"/>
+    <img src="images/OIP (1).webp" alt="seleccion_colombia">
+    <img src="images/OIP.webp" alt="seleccion_colombia">
+  </div>
+</div>
+
+<!-- Sección verde con tarjeta -->
+<div class="seccion-verde">
+  <h2>Lorem Ipsum</h2>
+  <div class="tarjetas-contenedor">
+    <div class="tarjeta">
+      <div class="tarjeta-icono">🎮</div>
+      <h3>Juego</h3>
+    </div>
+  </div>
+</div>
+
+<!-- Sección blanca con PDF -->
+<div class="seccion-blanca">
+  <h2>Lorem Ipsum</h2>
+  <div class="seccion-media">
+    <div class="media-placeholder">
+      <i class="pdf-icon">📄</i>
+      <h3>Cartilla</h3>
+    </div>
+  </div>
+</div>
+
+  <!-- ===== FOOTER ===== -->
+<footer class="footer-index" id="footer-index">
+<div class="footer-content">
+  <div class="footer-info">
+    <h3>Carrera 48 # 6-40 Urb. Guayuriba</h3>
+    <p>servicioalciudadano@sena.edu.co</p>
+  </div>
+
+  <div class="footer-social-index">
+    <a href="#"><img src="./assets/icons/facebook.png" alt="Facebook"></a>
+    <a href="#"><img src="./assets/icons/youtube.png" alt="YouTube"></a>
+    <a href="#"><img src="./assets/icons/instagram.png" alt="Instagram"></a>
+  </div>
+</div>
+
+<div class="footer-bottom-index">
+  <p>© 2025 Servicio Nacional de Aprendizaje SENA<br>Todos los derechos reservados.</p>
+</div>
+</footer>
+<!--SCRIPT EFECTO IMAGENES-->
+<!--SCRIPT EFECTO IMAGENES-->
+<script>
+  // Obtener todas las imágenes del banner
+  const imagenesDelBanner = document.querySelectorAll('.banner-imagenes img');
+  
+  imagenesDelBanner.forEach((imagen, index) => {
+    imagen.addEventListener('click', function(e) {
+      e.stopPropagation();
+      
+      // Si la imagen ya está expandida, restaurar todas al tamaño normal
+      if (this.classList.contains('expandido')) {
+        imagenesDelBanner.forEach(img => {
+          img.classList.remove('expandido');
+          img.classList.remove('reducido');
+        });
+      } else {
+        // Expandir la imagen clickeada y reducir las demás
+        imagenesDelBanner.forEach((img, i) => {
+          if (i === index) {
+            img.classList.add('expandido');
+            img.classList.remove('reducido');
+          } else {
+            img.classList.add('reducido');
+            img.classList.remove('expandido');
+          }
+        });
+      }
+    });
+  });
+  
+  // Cerrar imagen expandida al hacer click fuera
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.banner-imagenes')) {
+      imagenesDelBanner.forEach(img => {
+        img.classList.remove('expandido');
+        img.classList.remove('reducido');
+      });
+    }
+  });
+</script>
+<!-- ===== SCRIPT EFECTO SCROLL ===== -->
+<script src="js/main.js"></script>
+</body>
+</html>

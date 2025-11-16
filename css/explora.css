@@ -1,0 +1,464 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: #39A900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav img {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+nav img:hover {
+  transform: scale(1.05);
+}
+
+.menu-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.menu-links a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-explora {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-explora:hover {
+  background: #f0f0f0;
+  transform: scale(0.98);
+}
+
+/* ===== BANNER ===== */
+.banner {
+  width: 100%;
+  background: #f5f5f5;
+  margin-top: 80px;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  min-height: 550px;
+  overflow: hidden;
+}
+
+.banner h1 {
+  color: #000;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: right;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 20px;
+}
+
+/* Contenedor de imágenes en el banner */
+.banner-imagenes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 1300px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.banner-imagenes img {
+  width: 350px;
+  height: 230px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 25px;
+  padding: 10px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Estado cuando una imagen está expandida - las demás se reducen */
+.banner-imagenes img.reducido {
+  width: 100px;
+  height: 230px;
+ 
+}
+/* Imagen izquierda se recorta solo desde el lado derecho */
+.banner-imagenes img:nth-child(1).reducido {
+  width: 150px;
+  height: 230px;
+  opacity: 0.7;
+  object-position: left center;
+  transform: translateX(-20px);
+}
+
+/* Imagen del centro cuando está reducida */
+.banner-imagenes img:nth-child(2).reducido {
+  width: 150px;
+  height: 230px;
+  opacity: 0.7;
+  object-position: center center;
+}
+
+/* Imagen derecha se recorta solo desde el lado izquierdo */
+.banner-imagenes img:nth-child(3).reducido {
+  width: 150px;
+  height: 230px;
+  opacity: 0.7;
+  object-position: right center;
+  transform: translateX(20px);
+}
+
+
+/* Imagen izquierda expandida */
+.banner-imagenes img:nth-child(1).expandido {
+  width: 700px;
+  height: 230px;
+  
+  z-index: 20;
+  opacity: 1;
+}
+
+/* Imagen del centro expandida */
+.banner-imagenes img:nth-child(2).expandido {
+  width: 700px;
+  height: 230px;
+  
+  z-index: 20;
+  opacity: 1;
+}
+
+/* Imagen derecha expandida */
+.banner-imagenes img:nth-child(3).expandido {
+  width: 700px;
+  height: 230px;
+  
+  z-index: 20;
+  opacity: 1;
+}
+
+
+
+/* ===== SECCIONES CON FONDO VERDE ===== */
+.seccion-verde {
+  width: 100%;
+  background: #39A900;
+  padding: 50px;
+  margin-bottom: 0;
+}
+
+.seccion-verde h2 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+/* ===== SECCIONES CON FONDO BLANCO ===== */
+.seccion-blanca {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 50px;
+  margin-bottom: 0;
+}
+
+.seccion-blanca h2 {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.contenido-principal {
+  flex: 1;
+  width: 100%;
+}
+
+/* ===== TARJETAS ===== */
+.tarjetas-contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 0 50px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tarjeta {
+  background: #d9d9d9;
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: left;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tarjeta-icono {
+  width: 140px;
+  height: 140px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  margin: 0;
+  border: 4px solid #39A900;
+}
+
+.tarjeta h3 {
+  font-size: 1.8rem;
+  color: #000;
+  margin: 0;
+  font-weight: 700;
+}
+
+.tarjeta p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== SECCIÓN VIDEO/PDF ===== */
+.seccion-media {
+  background: #d9d9d9;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  margin: 0 50px;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seccion-media h2 {
+  font-size: 1.8rem;
+  color: #000;
+  margin-bottom: 0;
+  font-weight: 700;
+  padding-left: 0;
+}
+
+.media-placeholder {
+  width: 100%;
+  height: 350px;
+  background: #c0c0c0;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.media-placeholder svg,
+.media-placeholder i {
+  font-size: 5rem;
+  color: #333;
+}
+
+/* ===== FOOTER ===== */
+.footer-index {
+  background-color: #39A900;
+  color: white;
+  padding: 30px 0 0 0;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  margin-top: 50px;
+}
+
+.footer-index.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 50px;
+}
+
+.footer-info {
+  max-width: 50%;
+}
+
+.footer-info h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.footer-info p {
+  margin: 8px 0 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.footer-social-index {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-social-index img {
+  width: 45px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social-index img:hover {
+  transform: scale(1.15);
+}
+
+.footer-bottom-index {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1rem;
+  padding: 15px 0;
+  background: linear-gradient(to right, #296606, #296606);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-bottom-index p {
+  margin: 0;
+  color: #fff;
+  font-weight: 500;
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 950px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 30px;
+  }
+
+  .menu-links {
+    gap: 20px;
+  }
+
+  .banner {
+    padding: 30px 20px;
+    align-items: center;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .banner img {
+    width: 100%;
+    max-width: 350px;
+    height: 220px;
+  }
+
+  .banner-imagenes {
+    justify-content: center;
+  }
+
+  .seccion-verde,
+  .seccion-blanca {
+    padding: 30px 20px;
+  }
+
+  .seccion-verde h2,
+  .seccion-blanca h2 {
+    font-size: 2rem;
+    padding-left: 0;
+  }
+
+  .tarjetas-contenedor {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .seccion-media {
+    margin: 0 20px;
+    padding: 30px;
+  }
+
+  .media-placeholder {
+    height: 250px;
+  }
+
+  .footer-info {
+    max-width: 100%;
+  }
+}
