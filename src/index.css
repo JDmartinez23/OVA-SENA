@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.pixel-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px; /* ajusta según prefieras */
+  line-height: 1;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  /* evitar sub-pixel antialiasing cuando se escala */
+  transform: translateZ(0);
+}
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+img.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* fondo para el menú usando tu imagen en public/assets/imagenfondo.png */
+.menu-bg {
+  background-image: url('/assets/imagenfondo.png');
+  background-repeat: no-repeat;       /* o 'repeat' si es tileable */
+  background-position: center;
+  background-size: contain;           /* 'cover' si prefieres ocupar todo */
+  image-rendering: pixelated;         /* intenta mantener pixel-art al escalar */
+  -ms-interpolation-mode: nearest-neighbor;
+}
+  
+/* opcional: una capa semitransparente para mejorar legibilidad */
+.menu-overlay {
+  background-color: rgba(0,0,0,0.45);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
