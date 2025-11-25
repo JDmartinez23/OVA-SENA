@@ -47,8 +47,7 @@
     left: 0;
     z-index: 100;
     opacity: 0;
-    transform: translateY(-40px);
-    transition: opacity 1s ease, transform 1s ease;
+    
 }
 
 .navbar-index.show {
@@ -279,8 +278,7 @@
     left: 0;
     z-index: 100;
     opacity: 0;
-    transform: translateY(-40px);
-    transition: opacity 1s ease, transform 1s ease;
+    
 }
 .encabezado-inicio.show {
     opacity: 1;

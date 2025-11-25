@@ -25,8 +25,7 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    opacity: 0;
-    transition: opacity 1s ease, transform 1s ease;
+    
 }
 .encabezado-inicio.show {
     opacity: 1;
