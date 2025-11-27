@@ -40,7 +40,7 @@ img.pixelated {
 
 /* fondo para el menú usando tu imagen en public/assets/imagenfondo.png */
 .menu-bg {
-  background-image: url('/assets/imagenfondo.png');
+  background-image: url('assets/imagenfondo.png');
   background-repeat: no-repeat;       /* o 'repeat' si es tileable */
   background-position: center;
   background-size: contain;           /* 'cover' si prefieres ocupar todo */
