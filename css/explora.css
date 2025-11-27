@@ -13,14 +13,30 @@ body {
   overflow-x: hidden;
 }
 
+/* ==== Layout variables and container helper ==== */
+:root{
+  --page-max-width: 1300px;
+  --page-padding: 15px;
+}
+
+/* .page-container: reusable rule for centering and padding cont ent */
+.page-container{
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+  width: 100%;
+}
+
 /* ===== NAVBAR ===== */
 .encabezado-inicio{
-    margin-top: 22px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
+  margin-top: 22px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px var(--page-padding);
     background: #2AA837;
     top: 0;
     left: 0;
@@ -58,6 +74,7 @@ body {
     background: #dcdcdc;
     transform: scale(0.95);
 }
+
 .menu-links {
     display: flex;
     align-items: center;
@@ -89,7 +106,7 @@ body {
   width: 100%;
   background: #f5f5f5;
   margin-top: -30px;
-  padding: 40px 0;
+  padding: 40px 0; /* horizontal padding moved into inner elements */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,8 +121,8 @@ body {
   font-weight: 700;
   text-align: right;
   width: 100%;
-  max-width: 1300px;
-  padding: 0 20px;
+  max-width: var(--page-max-width);
+  padding: 0 var(--page-padding);
 }
 
 /* Contenedor de imágenes en el banner */
@@ -116,14 +133,14 @@ body {
   align-items: center;
   flex-wrap: nowrap;
   width: 100%;
-  max-width: 1300px;
-  padding: 0 20px;
+  max-width: var(--page-max-width);
+  padding: 0 var(--page-padding);
   position: relative;
 }
 
 .banner-imagenes img {
-  width: 350px;
-  height: 230px;
+  width: 410px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
   border-radius: 25px;
@@ -200,7 +217,7 @@ body {
 .seccion-verde {
   width: 100%;
   background: #39A900;
-  padding: 50px;
+  padding: 50px 0; /* horizontal spacing is handled by inner container */
   margin-bottom: 0;
 }
 
@@ -209,14 +226,22 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 40px;
-  padding-left: 30px;
+  text-align: left;
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+  max-width: var(--page-max-width);
+  margin: 0 auto 40px;
+  padding: 0 var(--page-padding);
+  box-sizing: border-box;
+  text-align: left;
 }
+
 
 /* ===== SECCIONES CON FONDO BLANCO ===== */
 .seccion-blanca {
   width: 100%;
   background: #f5f5f5;
-  padding: 50px;
+  padding: 50px 0; /* horizontal spacing is handled by inner container */
   margin-bottom: 0;
 }
 
@@ -225,7 +250,9 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 40px;
-  padding-left: 30px;
+  text-align: center;
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
 }
 
 /* ===== CONTENIDO PRINCIPAL ===== */
@@ -239,8 +266,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  padding: 0 50px;
-  max-width: 1400px;
+  padding: 0 var(--page-padding);
+  max-width: var(--page-max-width);
   margin: 0 auto;
 }
 
@@ -289,48 +316,120 @@ body {
   margin: 0;
 }
 
-/* ===== SECCIÓN VIDEO/PDF ===== */
-.seccion-media {
-  background: #c0c0c0;
-  border-radius: 20px;
-  padding: 50px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  margin: 0 50px;
-  max-width: 1700px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.seccion-media h2 {
-  font-size: 1.8rem;
-  color: #000;
-  margin-bottom: 0;
-  font-weight: 700;
-  padding-left: 0;
-}
-
-.media-placeholder {
-  width: 100%;
-  height: 350px;
-  background: #c0c0c0;
-  border-radius: 15px;
+/* ===== SECCIÓN CARTILLA CON DISEÑO MODERNO ===== */
+.cartilla-contenedor {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 60px;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+  background: transparent;
+  border-radius: 25px;
+  box-shadow: none;
 }
 
-.media-placeholder svg,
-.media-placeholder i {
-  font-size: 5rem;
+.cartilla-preview {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0;
+}
+
+.pdf-mockup {
+  width: 300px;
+  height: 400px;
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: none;
+  overflow: visible;
+  border: none;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.pdf-mockup:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: none;
+}
+
+.pdf-mockup img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.pdf-mockup:hover img {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.cartilla-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cartilla-info h3 {
+  font-size: 2rem;
+  color: #000;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cartilla-info p {
   color: #333;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+  text-align: justify;
+}
+
+.btn-descargar {
+  display: inline-block;
+  background: #39A900;
+  color: white;
+  padding: 14px 40px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  max-width: 200px;
+  box-shadow: 0 4px 15px rgba(57, 169, 0, 0.3);
+}
+
+.btn-descargar:hover {
+  background: #2B8935;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(57, 169, 0, 0.4);
+}
+
+.btn-descargar:active {
+  transform: translateY(0);
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 /* ===== FOOTER ===== */
 .footer-index {
-  margin-top: 50px;
+  margin-top: 0%;
   background-color:#2B8935;
   color: white;
   padding: 30px 0 0 0;
@@ -352,7 +451,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 0 50px;
+  padding: 0 var(--page-padding);
 }
 
 .footer-info {
@@ -389,7 +488,6 @@ body {
 }
 
 .footer-bottom-index {
-
   width: 100%;
   text-align: center;
   margin-top: 30px;
@@ -409,8 +507,20 @@ body {
   width: 100%;
 }
 
+/* Make footer text align with page margins */
+.footer-bottom-index p {
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 950px) {
+  /* reduce horizontal padding on small screens so content stays visible */
+  :root { --page-padding: 20px; --page-max-width: 950px; }
   nav {
     flex-direction: column;
     gap: 10px;
@@ -422,7 +532,7 @@ body {
   }
 
   .banner {
-    padding: 30px 20px;
+    padding: 30px 0; /* horizontal padding moved to inner elements via --page-padding */
     align-items: center;
   }
 
@@ -444,7 +554,7 @@ body {
 
   .seccion-verde,
   .seccion-blanca {
-    padding: 30px 20px;
+    padding: 30px 0; /* inner content will use --page-padding to align */
   }
 
   .seccion-verde h2,
@@ -455,7 +565,7 @@ body {
 
   .tarjetas-contenedor {
     grid-template-columns: 1fr;
-    padding: 0 20px;
+    padding: 0 var(--page-padding);
   }
 
   .seccion-media {
@@ -470,4 +580,38 @@ body {
   .footer-info {
     max-width: 100%;
   }
+  
+  /* Responsive para la cartilla */
+  .cartilla-contenedor {
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px var(--page-padding);
+    margin: 0;
+  }
+  
+  .cartilla-preview {
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+  
+  .cartilla-info h3 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  
+  .cartilla-info p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .btn-descargar {
+    max-width: 100%;
+  }
+}
+
+/* Utility class to nudge images to the left — use inline style to override amount, e.g. style="--mover-left: 40px;" */
+.mover-izquierda {
+  --mover-left: 30px; /* default */
+  transform: translateX(calc(-1 * var(--mover-left)));
+  transition: transform 0.25s ease;
 }
