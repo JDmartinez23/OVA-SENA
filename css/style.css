@@ -364,7 +364,7 @@
 /* seccion de frase */
 
 .contenido-frase{
-    background: url("/img/banners/Group\ 10.png") no-repeat center center/cover;
+    background: url("/img/banners/Group 10.png") no-repeat center center/cover;
 }
 .contenido-frase {
     display: flex;
@@ -704,4 +704,36 @@ padding: 15px 0;
     transform: scale(0.95);
 }
 
+}
+
+
+@media (max-width: 576px) {
+  .contenido-index { padding: 150px 20px 40px; flex-direction: column; text-align:center; }
+  .texto-cont-index h1 { font-size: 2.4rem; }
+  .texto-cont-index h2 { font-size: 2rem; }
+  .texto-cont-index p  { font-size: 1.8rem; }
+  .personaje-index { position: relative; right:0; margin-top:20px; max-width:260px; }
+  .navbar-index { padding:12px 20px; flex-direction:column; gap:10px; }
+  .navbar-index img { height:50px; }
+  .menu-links { gap:20px; }
+  .menu-links a { font-size:1rem; }
+  .footer-content { padding:0 20px; flex-direction:column; text-align:center; gap:25px; }
+  .footer-info h3 { font-size:1.1rem; } .footer-info p { font-size:0.9rem; }
+  .footer-social-index img { width:26px; height:26px; }
+}
+
+@media (min-width:577px) and (max-width:768px) {
+  .contenido-index { padding:160px 40px 50px; flex-direction:column; text-align:center; }
+  .personaje-index { position:relative; max-width:300px; right:0; margin-top:30px; }
+  .texto-cont-index h1 { font-size:3rem; } .texto-cont-index h2 { font-size:2.4rem; } .texto-cont-index p { font-size:2rem; }
+}
+
+@media (min-width:769px) and (max-width:1024px) {
+  .contenido-index { padding:180px 50px 60px; }
+  .personaje-index { max-width:350px; right:20px; }
+}
+
+@media (min-width:1025px) and (max-width:1366px) {
+  .contenido-index { padding:180px 70px 60px; }
+  .personaje-index { max-width:420px; right:40px; }
 }
