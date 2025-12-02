@@ -207,7 +207,7 @@ body {
 .seccion-blanca {
   width: 100%;
   background: #f5f5f5;
-  padding: 50px 0;
+  padding: 60px 0;
   margin-bottom: 0;
 }
 
@@ -258,7 +258,7 @@ body {
 .cartilla-contenedor {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 150px;
   max-width: var(--page-max-width);
   margin: 0 auto;
   padding: 0 var(--page-padding);
@@ -290,7 +290,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 650px;
+  max-width: 600px;
 }
 
 .cartilla-info h3 {
@@ -303,7 +303,7 @@ body {
 .cartilla-info p {
   color: #333;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
   text-align: justify;
 }
@@ -568,7 +568,7 @@ body {
   }
 
   .cartilla-contenedor {
-    gap: 50px;
+    gap: 60px;
   }
 
   .pdf-mockup {
