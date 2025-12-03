@@ -370,7 +370,7 @@
 /* seccion de frase */
 
 .contenido-frase{
-    background: url("/img/banners/Group 10.png") no-repeat center center/cover;
+    background: url("../img/banners/Group 10.png") no-repeat center center/cover;
 }
 .contenido-frase {
     display: flex;
@@ -710,8 +710,19 @@ padding: 15px 0;
     transform: scale(0.95);
 }
 
+.video-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
 }
-
+.titulo-video {
+  width: 80%;
+  max-width: 1200px;
+  margin: 40px auto 10px auto; /* Se alinea con el contenido */
+  font-size: 32px;
+  font-weight: 700;
+}
+}
 
 @media (max-width: 576px) {
   .contenido-index { padding: 150px 20px 40px; flex-direction: column; text-align:center; }

@@ -29,49 +29,52 @@ body {
 }
 
 /* ===== NAVBAR ===== */
-.encabezado-inicio{
-  margin-top: 22px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px var(--page-padding);
-  background: #2AA837;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
+/* estilos de incio */
 
+.encabezado-inicio{
+    margin-top: 22px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: #2AA837;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0;
+    
+}
 .encabezado-inicio.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .encabezado-inicio img{
-  height: 70px;
-  margin-top: 8px;
-  transition: transform 0.3s ease;
+    height: 70px;
+    margin-top: 8px;
+    transition: transform 0.3s ease;
 }
 
 .encabezado-inicio img:hover{
-  transform: scale(1.08);
+    transform: scale(1.08);
 }
 
 .btn-explora {
-  background: #fff;
-  color: #111;
-  font-weight: 600;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 30px;
-  font-size: 1.15rem;
-  transition: all 0.3s ease;
-  text-decoration: none;
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1.15rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn-explora:hover {
-  background: #dcdcdc;
-  transform: scale(0.95);
+    background: #dcdcdc;
+    transform: scale(0.95);
 }
 
 .menu-links {
@@ -101,7 +104,7 @@ body {
   width: 100%;
   background: #f5f5f5;
   margin-top: -30px;
-  padding: 40px 0;
+  padding: 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,7 +120,7 @@ body {
   text-align: right;
   width: 100%;
   max-width: var(--page-max-width);
-  padding: 0 var(--page-padding);
+  padding: 0px var(--page-padding);
 }
 
 .banner-imagenes {
@@ -204,7 +207,7 @@ body {
 .seccion-blanca {
   width: 100%;
   background: #f5f5f5;
-  padding: 50px 0;
+  padding: 60px 0;
   margin-bottom: 0;
 }
 
@@ -255,7 +258,7 @@ body {
 .cartilla-contenedor {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 150px;
   max-width: var(--page-max-width);
   margin: 0 auto;
   padding: 0 var(--page-padding);
@@ -287,7 +290,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 650px;
+  max-width: 600px;
 }
 
 .cartilla-info h3 {
@@ -300,7 +303,7 @@ body {
 .cartilla-info p {
   color: #333;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
   text-align: justify;
 }
@@ -341,8 +344,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 0 var(--page-padding);
-  max-width: var(--page-max-width);
+  padding: 0 50px;
   margin: 0 auto;
 }
 
@@ -393,8 +395,6 @@ body {
   margin: 0;
   color: #fff;
   font-weight: 500;
-  padding: 0 var(--page-padding);
-  max-width: var(--page-max-width);
   margin-left: auto;
   margin-right: auto;
 }
@@ -508,6 +508,119 @@ body {
 
   .footer-info p {
     font-size: 1.2rem;
+  }
+}
+
+/* ===== RESPONSIVE LAPTOPS (951px - 1200px) ===== */
+@media (min-width: 951px) and (max-width: 1200px) {
+  :root {
+    --page-padding: 20px;
+    --page-max-width: 1200px;
+  }
+
+  .encabezado-inicio {
+    padding: 10px 30px;
+  }
+
+  .encabezado-inicio img {
+    height: 65px;
+  }
+
+  .menu-links {
+    gap: 35px;
+  }
+
+  .menu-links a {
+    font-size: 1.2rem;
+  }
+
+  .btn-explora {
+    padding: 10px 22px;
+    font-size: 1.1rem;
+  }
+
+  .banner h1 {
+    font-size: 2.5rem;
+  }
+
+  .banner-imagenes img {
+    width: 350px;
+    height: 220px;
+  }
+
+  .banner-imagenes img.reducido {
+    width: 150px;
+    height: 200px;
+  }
+
+  .banner-imagenes img.expandido {
+    width: 550px;
+    height: 220px;
+  }
+
+  .seccion-verde h2,
+  .seccion-blanca h2 {
+    font-size: 2.2rem;
+  }
+
+  .tarjeta iframe {
+    height: 600px;
+  }
+
+  .cartilla-contenedor {
+    gap: 60px;
+  }
+
+  .pdf-mockup {
+    width: 380px;
+    height: 470px;
+  }
+
+  .cartilla-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .cartilla-info p {
+    font-size: 1rem;
+  }
+
+  .btn-descargar {
+    padding: 12px 35px;
+    font-size: 1rem;
+  }
+
+  .footer-content {
+    padding: 0 30px;
+  }
+
+  .footer-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .footer-info p {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== RESPONSIVE LAPTOPS GRANDES (1025px - 1200px) ===== */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .banner-imagenes img {
+    width: 380px;
+    height: 240px;
+  }
+
+  .banner-imagenes img.expandido {
+    width: 600px;
+    height: 240px;
+  }
+
+  .pdf-mockup {
+    width: 400px;
+    height: 490px;
+  }
+
+  .tarjeta iframe {
+    height: 650px;
   }
 }
 
@@ -767,5 +880,24 @@ body {
 
   .tarjeta iframe {
     height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .btn-explora {
+    background: #fff;
+    color: #111;
+    font-weight: 600;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .btn-explora:hover {
+    background: #dcdcdc;
+    transform: scale(0.95);
   }
 }
