@@ -47,7 +47,10 @@
     left: 0;
     z-index: 100;
     opacity: 0;
-    
+    min-height: 90px; /* altura fija minima*/
+    height: 90px; /* evita que crezca con el zoom*/
+    overflow: hidden; /* evita que el contenido fuerce mas altura*/
+    flex-shrink: 0;
 }
 
 .navbar-index.show {
@@ -82,11 +85,13 @@
 .menu-links a:hover {
     background: rgba(255, 255, 255, 1);
     color: #111;
-    padding: 16px 20px;
+    padding: 0 20px;
     border-radius: 25px;
     transform: scale(0.93);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
+
+
 
 .btn-explora {
     background: #fff;
@@ -171,14 +176,15 @@
 }
 
 .personaje-index{
-    max-width: 490px;
+    max-width: 480px;
     z-index: 10;
     position: absolute;
     bottom: 0;
-    right: 100px;
+    right: 280px;
     opacity: 0;
     transform: translateY(60px);
     transition: opacity 1.2s ease, transform 1.2s ease;
+    margin-top: 40px;
 }
 
 .personaje-index.show {
