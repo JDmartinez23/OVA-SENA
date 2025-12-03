@@ -722,6 +722,37 @@ padding: 15px 0;
   font-size: 32px;
   font-weight: 700;
 }
+.contenido-index {
+        padding: 0px 12vw;
+        
+    }
+
+    .texto-cont-index h1 {
+        font-size: 2.8vw;
+    }
+
+    .texto-cont-index h2 {
+        font-size: 2.2vw;
+        padding-bottom: 1vw;
+    }
+
+    .texto-cont-index p {
+        font-size: 1.8vw;
+        padding-bottom: 4vw;
+    }
+    .personaje-index{
+      right: 22vw;
+    }
+    .personaje-index img {
+        width: 30vw;
+    }
+
+    .btn-aprender {
+        font-size: 1.2vw;
+        padding: 0.9vw 1.8vw;
+        white-space: nowrap;
+    }
+    
 }
 
 @media (max-width: 576px) {
