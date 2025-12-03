@@ -15,8 +15,8 @@ body {
 
 /* ==== Layout variables ==== */
 :root{
-  --page-max-width: 1600px;
-  --page-padding: 15px;
+  --page-max-width: 100%;
+  --page-padding: 50px;
 }
 
 .page-container{
@@ -900,4 +900,10 @@ body {
     background: #dcdcdc;
     transform: scale(0.95);
   }
+  @media (min-width: 1920px) {
+  :root {
+    --page-padding: 160px;
+  }
+}
+
 }
